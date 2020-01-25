@@ -4,6 +4,7 @@
 This assignment was made with IntelliJ IDEA and Katalon Recorder, and Maven was used for reporting
 
 If you want to make your own reports, you have to download Maven "apache-maven-x.x.x-bin.zip" from [this link](https://maven.apache.org/download.cgi).
+
 Then you need to extract it to any location so you can add it to your environment PATH variable like in these pictures.
 ![Envrionment PATH variable](/images/screen1.png)
 ![Envrionment PATH variable](/images/screen2.png)
@@ -11,6 +12,17 @@ Then you need to extract it to any location so you can add it to your environmen
 ### `Testing`
 
 So in this project, the testing was done on my personal website that can be found [HERE](https://jpapez-myplan.web.app/).
+
+The tests i ran here were: 
+* Login without signing up first
+
+* Sign Up
+
+* Sign up, log out and then signing in again
+
+* Signing up and creating project
+
+* Testing of notification system for creating project
 
 In order to run already created test, you can just select one of the tests in drop down menu and click on green play button.
 ![Envrionment PATH variable](/images/screen3.png)
