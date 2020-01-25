@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AllTestsSuite">
+ <test name="Project assignment TestNG tests">
+ <classes>
+ <class name="FirstTest"/>
+  <class name="SecondTest"/>
+  <class name="ThirdTest"/>
+  <class name="ForthTest"/>
+  <class name="FifthTest"/>
+ </classes>
+ </test>
+</suite>
