@@ -8,19 +8,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FirstTest {
-    //-----------------------------------Global Variables-----------------------------------
-//Declare a Webdriver variable
     public WebDriver driver;
-    //Declare a test URL variable
     public String testURL = "https://jpapez-myplan.web.app/";
 
-    //-----------------------------------Test Setup-----------------------------------
     @BeforeMethod
     public void setupTest() {
         System.setProperty("webdriver.chrome.driver", "C:/Drivers/chromedriver.exe");
-        //Create a new ChromeDriver
         driver = new ChromeDriver();
-        //Go to www.swtestacademy.com
         driver.navigate().to(testURL);
     }
 
@@ -39,10 +33,8 @@ public class FirstTest {
         Assert.assertEquals(testLink.getText(), "Login failed");
     }
 
-    //-----------------------------------Test TearDown-----------------------------------
     @AfterMethod
     public void teardownTest() {
-        //Close browser and end the session
         driver.quit();
     }
 }
