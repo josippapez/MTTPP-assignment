@@ -1,17 +1,17 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ForthTest {
     public WebDriver driver;
-    //Declare a test URL variable
+    public WebDriverWait wait;
     public String testURL = "https://jpapez-myplan.web.app/";
 
     @BeforeMethod
@@ -25,7 +25,8 @@ public class ForthTest {
     public void signUpAndCreateProjectTest() throws Exception {
         double randomNumber = Math.random() * 10000;
         driver.get("https://jpapez-myplan.web.app/signin");
-        Thread.sleep(1000);
+        wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Sign up")));
         driver.findElement(By.linkText("Sign up")).click();
         driver.findElement(By.id("email")).click();
         driver.findElement(By.id("email")).clear();
@@ -37,12 +38,8 @@ public class ForthTest {
         driver.findElement(By.id("firstName")).clear();
         driver.findElement(By.id("firstName")).sendKeys("netko");
         driver.findElement(By.id("firstName")).sendKeys(Keys.ENTER);
-        Thread.sleep(2000);
-        Boolean isPresent2 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div/form/div[5]/div/p")).size() > 0;
-        if (isPresent2) {
-            System.out.println("The email address is already in use by another account.");
-            Assert.fail();
-        }
+        wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("New Project")));
         driver.findElement(By.linkText("New Project")).click();
         driver.findElement(By.xpath("//div[@id='root']/div/div/form/div/label")).click();
         driver.findElement(By.id("title")).clear();
@@ -50,13 +47,11 @@ public class ForthTest {
         driver.findElement(By.id("content")).clear();
         driver.findElement(By.id("content")).sendKeys("newwwwww");
         driver.findElement(By.xpath("//div[@id='root']/div/div/form/div[3]/button")).click();
-        Thread.sleep(5000);
-        Boolean isPresent = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div/div/div[1]/div/a[1]/div/div")).size() > 0;
-        if (isPresent){
-            if (driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[1]/div/a[1]/div/div")).getText() == ("novi projekt" + randomNumber)){
-                Assert.assertTrue(true);
-            }
-        }
+        wait = new WebDriverWait(driver, 10);
+        String projectName= "novi projekt"+randomNumber;
+        System.out.println(projectName);
+        wait.until(ExpectedConditions.textToBe(By.xpath("//*[@id=\"root\"]/div/div/div/div[1]/div/a[1]/div/div/span"), projectName));
+        Assert.assertTrue(true);
     }
 
 
