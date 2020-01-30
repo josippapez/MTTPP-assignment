@@ -6,11 +6,14 @@ This assignment was made with IntelliJ IDEA and Katalon Recorder, and Maven was 
 If you want to make your own reports, you have to download Maven "apache-maven-x.x.x-bin.zip" from [this link](https://maven.apache.org/download.cgi).
 
 Then you need to extract it to any location so you can add it to your environment PATH variable like in these pictures.
+Also check if your JAVA_HOME variable is set to your java JDK directory. If not, you can set it in the same way.
 
 ![Envrionment PATH variable](/images/screen1.png)
 
 ![Envrionment PATH variable](/images/screen2.png)
 
+After you've added environment variables, you can start your tests with this command ![Maven Test](/images/screen7.png) 
+to get your reports and they are generated in your ../<project_folder>/target/surefire-reports/ folder.
 ### `Testing`
 
 So in this project, the testing was done on my personal website that can be found [HERE](https://jpapez-myplan.web.app/).
